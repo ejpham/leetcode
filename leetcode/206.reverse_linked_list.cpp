@@ -6,16 +6,13 @@ struct ListNode {
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-class Solution
-{
+class Solution {
 public:
-    ListNode* reverseList(ListNode* head)
-    {
+    ListNode* reverseList(ListNode* head) {
         ListNode* prev = nullptr;
         ListNode* curr = head;
         ListNode* temp;
-        while (curr)
-        {
+        while (curr) {
             temp = curr->next;
             curr->next = prev;
             prev = curr;
