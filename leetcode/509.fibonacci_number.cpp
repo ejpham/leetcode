@@ -1,8 +1,7 @@
 #include <map>
-using namespace std;
 class Solution {
 public:
-    map<int, int> map;
+    std::map<int, int> map;
     int fib(int n) {
         auto i = map.find(n);
         if (i != map.end()) return map[n];
