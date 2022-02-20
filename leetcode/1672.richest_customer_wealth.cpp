@@ -3,7 +3,7 @@
 class Solution {
 public:
     int maximumWealth(std::vector<std::vector<int>>& accounts) {
-        // O(n^2) time complexity - brute force using accumulate
+        // O(m*n) time complexity - brute force using accumulate
         int richest = 0;
         for (int i = 0; i < accounts.size(); i++) {
             int sum = 0;
@@ -12,7 +12,7 @@ public:
         }
         return richest;
 
-        /* O(n^2) time complexity - brute force solution
+        /* O(m*n) time complexity - brute force solution
         int richest = 0;
         for (int i = 0; i < accounts.size(); i++) {
             int sum = 0;
