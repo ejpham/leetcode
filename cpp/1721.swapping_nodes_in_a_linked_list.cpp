@@ -1,3 +1,4 @@
+#include <algorithm>
 // Definition for singly-linked list.
 struct ListNode {
     int val;
@@ -10,8 +11,11 @@ struct ListNode {
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        ListNode *beg = head, *end = head;
-        
+        ListNode *curr = head, *beg = nullptr, *end = head;
+        while (--k) curr = curr->next;
+        beg = curr;
+        while (curr->next) curr = curr->next, end = end->next;
+        std::swap(beg->val, end->val);
         return head;
     }
 };
