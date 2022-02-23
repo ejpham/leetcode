@@ -8,8 +8,16 @@ struct ListNode {
 };
  
 class Solution {
-public:
+public: // this method does NOT deallocate the removed pointer as leetcode throws errors when you attempt to do so
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *fast = head, *slow = head;
+        for (int i = 0; i < n; i++) fast = fast->next;
+        if (!fast) return head->next;
+        while (fast->next) fast = fast->next, slow = slow->next;
+        slow->next = slow->next->next;
+        return head;
+        
+        /* first solution
         ListNode *curr = head;
         int num_nodes = 0;
         while (curr) {
@@ -27,5 +35,6 @@ public:
             curr->next = curr->next->next;
         }
         return head;
+        */
     }
 };
