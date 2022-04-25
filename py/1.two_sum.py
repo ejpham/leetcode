@@ -2,10 +2,10 @@ import enum
 from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
+        map = {}
         for i, value in enumerate(nums):
-            remaining = target - nums[i]
-            if remaining in seen:
-                return [i, seen[remaining]]
+            if target - value in map:
+                return map[target - value], i
             else:
-                seen[value] = i
+                map[value] = i
+        return -1, -1
